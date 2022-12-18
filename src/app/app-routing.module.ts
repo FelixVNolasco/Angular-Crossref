@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ByAgencyComponent } from './crossref/pages/byAgency/byAgency.component';
-import { WorksComponent } from './crossref/pages/work/works.component';
-import { WorkComponent } from './crossref/pages/works/work.component';
+import { WorksComponent } from './crossref/pages/works/works.component';
+import { WorkComponent } from './crossref/pages/work/work.component';
 
 const routes: Routes = [
   {

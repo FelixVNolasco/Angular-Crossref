@@ -35,6 +35,13 @@ export class WorksComponent implements OnInit {
 
   constructor(private crossrefSerivce: CrossrefService) { }
 
+
+  page = 1;
+
+  handlePageChange($event: any) {
+    this.page = $event;
+  }
+
   // buscar(termino: string) {
   //   this.mostrarSugerencias = false;
   //   this.hayError = false;

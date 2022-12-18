@@ -1,0 +1,46 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2 class="animate__animated animate__bounce">Works</h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <!-- <app-pais-input (onEnter)="buscar( $event )" (onDebounce)="sugerencias($event)"
+                placeholder="Buscar por País">
+            </app-pais-input> -->
+        </div>
+    </div>
+
+
+    <div *ngIf="works.length > 0">
+        <ul class="list-group">
+            <!-- <li *ngFor="let work of works | paginate: {itemsPerPage: 10, currentPage: 1, totalItems: works.length};" -->
+            <li *ngFor="let work of works"
+                class="list-group-item list-group-item-action">
+    
+                <div class="d-flex flex-column text-dark">
+                    <span class="fs-5"><b>Publisher:</b> {{work.publisher}}</span>
+                    <span class="fs-6"><b>{{work.created.timestamp | date}}</b></span>
+                    <span>{{work.publisher}}</span>
+                </div>
+    
+            </li>
+            <!-- <li class="list-group-item list-group-item-action" (click)='buscarSugerido(termino)'>
+                        <a class="nav-link">Buscar "{{termino}}" </a>
+                    </li> -->
+        </ul>
+        <!-- <div class="row mt-4">
+            <div class="col-md-12">
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+                    (pageChange)="handlePageChange($event)"></pagination-controls>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+
+<div *ngIf="hayError" class="alert alert-danger mt-2">No se ha encontrado nada con el término {{termino}}</div>
+
+<!-- <div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div> -->

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ByAgencyComponent } from './pages/byAgency/byAgency.component';
-import { WorkComponent } from './pages/works/work.component';
-import { WorksComponent } from './pages/work/works.component';
+import { WorkComponent } from './pages/work/work.component';
+import { WorksComponent } from './pages/works/works.component';
 import { RouterModule } from '@angular/router';
 import { InputComponent } from './components/input/input.component';
 import { TableComponent } from './components/table/table.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { TableComponent } from './components/table/table.component';
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        NgxPaginationModule
     ]
 })
 export class CrossrefModule { }
