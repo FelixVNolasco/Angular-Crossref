@@ -1,5 +1,5 @@
 import { parseHostBindings } from '@angular/compiler';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Work } from '../../interfaces/work';
 import { CrossrefService } from '../../services/crossref.service';
 
@@ -15,7 +15,17 @@ import { CrossrefService } from '../../services/crossref.service';
   `
   ]
 })
-export class WorksComponent {
+export class WorksComponent implements OnInit {
+  ngOnInit(): void {
+    this.crossrefSerivce.getWorks()
+      .subscribe(({ message }) => {
+        this.works = message.items;
+      }, ((err) => {
+        console.info(err);
+        this.hayError = true;
+        this.works = [];
+      }))
+  }
 
   termino: string = "";
   hayError: boolean = false;
@@ -25,22 +35,12 @@ export class WorksComponent {
 
   constructor(private crossrefSerivce: CrossrefService) { }
 
-  buscar(termino: string) {
-      this.mostrarSugerencias = false;
-      this.hayError = false;
-      this.termino = termino;
-      // console.log(this.termino);
-      this.crossrefSerivce.getWorks()
-      .subscribe((works) => {
-          console.log(works);
-          this.works = works;
-      }, ((err) => {
-          console.log("ERROR");
-          console.info(err);
-          this.hayError = true;
-          this.works = [];
-      }))
-  }
+  // buscar(termino: string) {
+  //   this.mostrarSugerencias = false;
+  //   this.hayError = false;
+  //   this.termino = termino;
+  //   console.log(this.termino);
+  // }
 
   // sugerencias(termino: string) {
   //     this.hayError = false;

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-// import { PaisService } from '../../services/pais.service';
 import { switchMap, tap } from 'rxjs/operators'
-// import { Country } from '../../interfaces/pais-interface';
 import { Work } from '../../interfaces/work';
+import { CrossrefService } from '../../services/crossref.service';
 
 @Component({
     selector: 'app-ver-pais',
@@ -15,25 +14,24 @@ export class WorkComponent implements OnInit {
 
     work!: Work;
 
-    // constructor(private activatedRoute: ActivatedRoute, private paisService: PaisService) { }
+    constructor(private activatedRoute: ActivatedRoute, private crossrefService: CrossrefService) { }
 
     ngOnInit(): void {
 
+        this.activatedRoute.params
+            .pipe(
+                switchMap(({ id }) => this.crossrefService.getSingleWork(id)),
+                tap(console.log)
+            )
+            .subscribe((work) => this.work = work);
+
         // this.activatedRoute.params
-        //     .pipe(
-        //         switchMap(({ id }) => this.paisService.getPaisPorAplha(id)),
-        //         tap(console.log)
-        //     )
-
-        //     .subscribe((pais) => this.pais = pais);
-
-        // // this.activatedRoute.params
-        // //     .subscribe(({id}) => {
-        // //       console.log(id);
-        // //       this.paisService.getPaisPorAplha(id).subscribe((pais) => {
-        // //         console.log(pais);
-        // //       })
-        // // })
+        //     .subscribe(({id}) => {
+        //       console.log(id);
+        //       this.paisService.getPaisPorAplha(id).subscribe((pais) => {
+        //         console.log(pais);
+        //       })
+        // })
     }
 
 

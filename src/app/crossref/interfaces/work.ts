@@ -4,14 +4,22 @@
 //
 //   "Set quicktype target language"
 
-export interface Work {
+export interface WorkResponse {
     status: string;
     "message-type": string;
     "message-version": string;
-    message: Message;
+    message: MessageResponse;
 }
 
-export interface Message {
+
+export interface MessageResponse {
+    facets: object;
+    items: Work[];
+    "items-per-page": number;
+    query: object;
+    "total-results": number;    
+}
+export interface Work {
     indexed: Created;
     "reference-count": number;
     publisher: string;

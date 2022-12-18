@@ -1,41 +1,38 @@
-<div *ngIf="!work; else divWorks" class="alert alert-info">
+<!-- <div *ngIf="!work; else divWorks" class="alert alert-info">
     Cargando...
-</div>
+</div> -->
 
 <ng-template #divWorks>
     <div class="row">
         <div class="col-12">
-            <!-- <h5>País: <small>{{pais.name}}</small></h5> -->
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <!-- <img [src]="pais.flag" alt="country flag" class="img-thumbnail" /> -->
-        </div>
-        <div class="col">
-            <!-- <h3>Información sobre: {{pais.name}}</h3> -->
-            <div class="list-group">
-                <!-- <li class="list-group-item">
-                    <strong>Población:</strong> {{pais.population | number }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Código :</strong> {{pais.numericCode | number }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Población:</strong> {{pais.alpha3Code }}
-                </li> -->
+            <div class="d-flex flex-column">
+                <p *ngfor="let title of work.title">{{title}}</p>
+                <div class="d-flex">
+                    <span *ngfor="let subject of work.subject">{{subject}}</span>
+                </div>
+                <div class="flex">
+                    <span *ngfor="let ISSN of work.ISSN">{{ISSN}}</span>
+                </div>
+                <div *ngfor="let author of work.author">
+                    <!-- <div class="flex">
+                        <span>Affiliation(s):</span>
+                        <span *ngfor="affiliation of author">{{}}</span>
+                    </div> -->
+                    <span>Family: {{author.family}}</span>
+                    <span>Given: {{author.given}}</span>
+                    <span>Sequence: {{author.sequence}}</span>
+                </div>
+
+                <span *ngfor="let domain of work.container-title">Domain: {{domain}}</span>
+                <span>Member {{work.member}}</span>
+                <span>Page {{work.page}}</span>
+                <span>Prefix {{work.prefix}}</span>
+
+                <!-- <span>Number of References: `${{{work.reference-count}}}` </span> -->
+                <a [href]="work.resource.primary">Full Article</a>
+
+
             </div>
-        </div>
-    </div>
-    <h3>Traducciones</h3>
-    <div class="row">
-        <div class="col">
-            <!-- <span class="badge bg-primary ms-1 p-2">{{pais.translations.de}}</span>
-            <span class="badge bg-primary ms-1 p-2">{{pais.translations.es}}</span>
-            <span class="badge bg-primary ms-1 p-2">{{pais.translations.fr}}</span>
-            <span class="badge bg-primary ms-1 p-2">{{pais.translations.ja}}</span>
-            <span class="badge bg-primary ms-1 p-2">{{pais.translations.it}}</span>
-            <span class="badge bg-primary ms-1 p-2">{{pais.translations.br}}</span> -->
         </div>
     </div>
 </ng-template>

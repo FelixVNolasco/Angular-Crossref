@@ -1,9 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Work } from '../interfaces/work';
+import { WorkResponse } from '../interfaces/work';
 // import { tap } from 'rxjs/operators';
 import { WorkByAgency } from '../interfaces/workByAgency';
+
 
 @Injectable({
     providedIn: 'root'
@@ -15,20 +16,20 @@ export class CrossrefService {
     // get httpParams() {
     //     return new HttpParams().set('fields', 'name;capital;alpha2Code;population;flag')
     // }
+
     constructor(private http: HttpClient) { }
 
-    getWorks(): Observable<Work[]> {
-        return this.http.get<Work[]>(this.apiUrl);
+    getWorks(): Observable<WorkResponse> {
+        return this.http.get<WorkResponse>(`${this.apiUrl}/works`);
     }
 
-
-    getSingleWork(doi: string): Observable<Work> {
-        const url = `${this.apiUrl}/${doi}`;
-        return this.http.get<Work>(url);
+    getSingleWork(doi: string): Observable<WorkResponse> {
+        const url = `${this.apiUrl}/works/${doi}`;
+        return this.http.get<WorkResponse>(url);
     }
 
     getSingleWorkByAgency(doi: string): Observable<WorkByAgency> {
-        const url = `${this.apiUrl}/${doi}/agency`
+        const url = `${this.apiUrl}/works/${doi}/agency`
         return this.http.get<WorkByAgency>(url);
     }
 

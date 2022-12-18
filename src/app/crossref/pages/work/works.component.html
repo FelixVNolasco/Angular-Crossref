@@ -9,17 +9,19 @@
         </div>
     </div>
 
-    <!-- <ul *ngIf="works.length > 0" class="list-group"> -->
-
-    <button ></button>
-    <ul class="list-group">
+    <ul *ngIf="works.length > 0" class="list-group">
         <li *ngFor="let work of works" class="list-group-item list-group-item-action">
-            <!-- <a class="nav-link" [routerLink]="['/pais', pais.alpha2Code]">{{work.status}}</a> -->
-            <a class="nav-link">{{work.status}}</a>
+            
+                <div class="d-flex flex-column text-dark">                
+                    <span class="fs-5"><b>Publisher:</b> {{work.publisher}}</span>
+                    <span class="fs-6"><b>{{work.created.timestamp | date}}</b></span>
+                    <span>{{work.publisher}}</span>
+                </div>
+            <a class="nav-link" [routerLink]="['/works', work.DOI]">Ver mas</a>
         </li>
         <!-- <li class="list-group-item list-group-item-action" (click)='buscarSugerido(termino)'>
-            <a class="nav-link">Buscar "{{termino}}" </a>
-        </li> -->
+                <a class="nav-link">Buscar "{{termino}}" </a>
+            </li> -->
     </ul>
 </div>
 
@@ -30,4 +32,4 @@
     <div class="col">
         <app-pais-tabla [paises]="paises"></app-pais-tabla>
     </div>
-</div> -->
+</div> -->  
