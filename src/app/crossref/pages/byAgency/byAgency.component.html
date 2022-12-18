@@ -3,17 +3,17 @@
     <hr>
     <div class="row">
         <div class="col">
-            <app-pais-input (onEnter)="buscar( $event )" (onDebounce)="sugerencias($event)"
+            <!-- <app-pais-input (onEnter)="buscar( $event )" (onDebounce)="sugerencias($event)"
                 placeholder="Buscar por Capital">
-            </app-pais-input>
+            </app-pais-input> -->
         </div>
     </div>
 </div>
 
 <div *ngIf="hayError" class="alert alert-danger mt-2">No se ha encontrado nada con el término {{termino}}</div>
 
-<div *ngIf="paises.length > 0" class="row">
+<!-- <div *ngIf="paises.length > 0" class="row">
     <div class="col">
         <app-pais-tabla [paises]="paises"></app-pais-tabla>
     </div>
-</div>
+</div> -->

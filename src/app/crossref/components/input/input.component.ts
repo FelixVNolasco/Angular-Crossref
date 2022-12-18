@@ -4,12 +4,12 @@ import { debounceTime } from 'rxjs/operators';
 
 @Component({
     selector: 'app-pais-input',
-    templateUrl: './pais-input.component.html',
+    templateUrl: './input.component.html',
     styles: [
     ]
 })
 
-export class PaisInputComponent implements OnInit {
+export class InputComponent implements OnInit {
 
     @Input() placeholder: String = "";
     @Output() onEnter: EventEmitter<string> = new EventEmitter();

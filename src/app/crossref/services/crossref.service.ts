@@ -8,7 +8,7 @@ import { WorkByAgency } from '../interfaces/workByAgency';
 @Injectable({
     providedIn: 'root'
 })
-export class PaisService {
+export class CrossrefService {
 
     private apiUrl: string = "https://api.crossref.org";
 

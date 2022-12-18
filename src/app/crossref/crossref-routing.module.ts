@@ -1,34 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { FullScreenComponent } from './pages/full-screen/full-screen.component';
-// import { MarcadoresComponent } from './pages/marcadores/marcadores.component';
-// import { PropiedadesComponent } from './pages/propiedades/propiedades.component';
-// import { ZoomRangeComponent } from './pages/zoom-range/zoom-range.component';
+import { ByAgencyComponent } from './pages/byAgency/byAgency.component';
+import { WorksComponent } from './pages/work/works.component';
+import { WorkComponent } from './pages/works/work.component';
 
 const routes: Routes = [
     {
         path: '',
         children: [
-            // {
-            //     path: 'fullscreen',
-            //     component: FullScreenComponent,
-            // },
-            // {
-            //     path: 'zoomRange',
-            //     component: ZoomRangeComponent,
-            // },
-            // {
-            //     path: 'marcadores',
-            //     component: MarcadoresComponent,
-            // },
-            // {
-            //     path: 'propiedades',
-            //     component: PropiedadesComponent,
-            // },
-            // {
-            //     path: '**',
-            //     redirectTo: 'fullscreen',
-            // },
+            {
+                path: '',
+                component: WorksComponent,
+            },
+            {
+                path: 'work/:id',
+                component: WorkComponent,
+            },
+            {
+                path: 'work/:id:/agency',
+                component: ByAgencyComponent,
+            }
         ],
     },
 ];
@@ -37,4 +28,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class MapasRoutingModule { }
+export class CrossrefRoutingModule { }

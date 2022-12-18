@@ -3,16 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 // import { PaisService } from '../../services/pais.service';
 import { switchMap, tap } from 'rxjs/operators'
 // import { Country } from '../../interfaces/pais-interface';
+import { Work } from '../../interfaces/work';
 
 @Component({
     selector: 'app-ver-pais',
-    templateUrl: './ver-pais.component.html',
+    templateUrl: './work.component.html',
     styles: [
     ]
 })
-export class VerPaisComponent implements OnInit {
+export class WorkComponent implements OnInit {
 
-    // pais!: Country;
+    work!: Work;
 
     // constructor(private activatedRoute: ActivatedRoute, private paisService: PaisService) { }
 
